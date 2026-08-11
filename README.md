@@ -49,9 +49,20 @@ career preparation
 
 ## Repository Structure
 
-```text
-Week01_Git_GitHub/
-Week02_Linux/
-Week03_Docker/
-Week04_Nextflow/
-...
+
+├── Week01_Git_GitHub/
+├── Week02_Linux_Bash/
+├── Week03_Docker/
+├── Week04_Nextflow/
+├── Week05_NGS_Pipeline/
+├── Week06_GIAB_Validation/
+├── Week07_CLIA_CAP/
+├── Week08_Documentation/
+├── Week09_Cloud/
+├── Week10_AI_for_Bioinformatics/
+├── Week11_Portfolio/
+├── Week12_Interview_Prep/
+├── Week13_Capstone_Integration/
+├── Week14_Final_Polish/
+├── Week15_Applications/
+└── Week16_Showcase/
