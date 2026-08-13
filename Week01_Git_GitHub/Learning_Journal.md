@@ -3,25 +3,34 @@
 ## Day 1 — Git and GitHub Foundations
 
 ### Date
-August 10, 2026
+
+August 13, 2026
 
 ### Day 1 Objectives
 
-- Understand what Git is
-- Understand what GitHub is
-- Understand the difference between Git and GitHub
-- Learn the basic GitHub terminology
-- Set up a professional GitHub profile
-- Create my first professional repository
-- Learn how repositories and README files are organized
+* Understand what Git is
+* Understand what GitHub is
+* Understand the difference between Git and GitHub
+* Learn basic Git and GitHub terminology
+* Set up a professional GitHub profile
+* Create my first professional repository
+* Learn how repositories and README files are organized
+* Understand the basic Git workflow
+* Create and initialize my first local Git repository
 
-## Day 1 — Git and GitHub Foundations
+### What I Learned
 
-Today I learned the basic difference between Git and GitHub. Git is a version-control system that tracks changes to files and preserves project history, while GitHub is an online platform that hosts Git repositories and supports collaboration.
+Today I learned the fundamental difference between Git and GitHub. Git is a version-control system that tracks changes to files and maintains project history, while GitHub is an online platform that hosts Git repositories and provides features for sharing, collaboration, and project management.
 
-I learned that a repository acts as a project workspace containing files, documentation, and version history. I also learned that a commit records a meaningful snapshot of project changes, while push sends committed changes from a local repository to GitHub and pull retrieves changes from GitHub to the local repository.
+I learned that a repository serves as a project workspace containing files, documentation, and version history. A commit records a meaningful snapshot of selected project changes. I also learned that `push` transfers committed changes from a local Git repository to a remote repository such as GitHub, while `pull` retrieves and incorporates changes from the remote repository into the local repository. The `clone` operation can be used to create a local copy of an existing Git repository, including its version history.
 
-I practiced creating a local project folder and initialized it as a Git repository using `git init`. I used `git status` to identify an untracked file, staged the file using `git add`, and created my first commit using `git commit`. I then used `git log` to view the commit history and learned that each commit receives a unique commit hash. I also learned that `HEAD` points to the currently checked-out commit and that my current branch can be renamed from `master` to `main`.
+I also learned the basic Git workflow:
+
+**Working Directory → Staging Area → Commit → Local Git Repository → Push → GitHub**
+
+During the hands-on exercise, I created a local project folder and initialized it as a Git repository using `git init`. I used `git status` to identify an untracked file and then staged the file using `git add`. After staging the file, I created my first commit using `git commit`.
+
+I used `git log` to inspect the repository history and learned that every commit receives a unique commit hash. I also learned that `HEAD` identifies the currently checked-out position in the repository history and that the default branch can be renamed from `master` to `main`.
 
 ### Commands Practiced
 
@@ -33,8 +42,25 @@ I practiced creating a local project folder and initialized it as a Git reposito
 * `git log`
 * `git branch -M main`
 
+### Concepts Learned
+
+* Git
+* GitHub
+* Repository
+* Working directory
+* Staging area
+* Commit
+* Commit hash
+* `HEAD`
+* Branch
+* Push
+* Pull
+* Clone
+* Local repository
+* Remote repository
+
 ### Key Takeaway
 
-The Git workflow I understand so far is:
+Git provides a structured way to track the development history of a project rather than simply storing copies of files. GitHub extends this workflow by providing an online environment where Git repositories can be stored, shared, reviewed, and collaboratively developed.
 
-Working Directory → Staging Area → Commit → Local Git Repository → Push → GitHub.
+For bioinformatics, this approach can support reproducibility by maintaining a traceable history of changes to scripts, workflows, configuration files, and project documentation.
