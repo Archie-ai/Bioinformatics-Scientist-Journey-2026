@@ -442,3 +442,474 @@ Clear Markdown documentation, organized repository structures, appropriate `.git
 Git provides a structured way to track the development history of a project rather than simply storing copies of files. GitHub extends this workflow by providing an online environment where Git repositories can be stored, shared, reviewed, and collaboratively developed.
 
 For bioinformatics, this approach can support reproducibility by maintaining a traceable history of changes to scripts, workflows, configuration files, and project documentation.
+
+
+## Day 3 — Branches, Pull Requests, Merging & Collaboration
+
+### Date
+
+August 15, 2026
+
+### Day 3 Objectives
+
+* Understand the purpose of Git branches
+* Learn how branches support safe and organized development
+* Create and switch between branches using Git
+* Understand how feature branches differ from the `main` branch
+* Push a feature branch to GitHub
+* Create my first Pull Request
+* Review proposed changes before merging
+* Merge a feature branch into `main`
+* Synchronize changes between GitHub and the local Git repository
+* Understand how branching workflows support collaborative bioinformatics development
+
+---
+
+## What I Learned
+
+### 1. Branches
+
+A branch is a separate line of development within the same Git repository.
+
+Branches allow developers to work on new features, experiments, documentation, or fixes without immediately modifying the stable `main` branch.
+
+For example:
+
+```text
+main
+  │
+  ●────●
+        \
+         ●────●  feature/readme
+```
+
+In this example, `feature/readme` can contain new work while `main` remains unchanged.
+
+This makes branching especially useful for larger projects because development work can be completed and reviewed before being integrated into the main version of the repository.
+
+---
+
+### 2. Why Changes Are Not Always Made Directly on `main`
+
+The `main` branch typically represents the primary or stable version of a project.
+
+Making every experimental or unfinished change directly on `main` can introduce:
+
+* Broken code
+* Incomplete features
+* Documentation errors
+* Unintended changes
+* Confusion between collaborators
+
+A feature branch provides a safer workspace where changes can be developed independently.
+
+For example:
+
+```text
+main
+    ↓
+Stable workflow
+
+feature/add-multiqc
+    ↓
+New functionality under development
+```
+
+Once the work is completed and reviewed, it can be merged into `main`.
+
+---
+
+### 3. Creating and Switching Branches
+
+I learned that the following command creates a new branch and immediately switches to it:
+
+```bash
+git switch -c feature/readme
+```
+
+The command can be interpreted as:
+
+```text
+git switch
+     ↓
+Switch branches
+
+-c
+     ↓
+Create a new branch
+
+feature/readme
+     ↓
+Name of the new branch
+```
+
+To switch back to an existing branch:
+
+```bash
+git switch main
+```
+
+---
+
+### 4. Identifying the Current Branch
+
+The command:
+
+```bash
+git branch
+```
+
+lists the available local branches.
+
+For example:
+
+```text
+  main
+* feature/readme
+```
+
+The `*` indicates the currently checked-out branch.
+
+The branch is different from the working directory. The working directory remains the local project folder, while the checked-out branch determines which version of the repository I am currently working with.
+
+---
+
+### 5. Feature Branch Workflow
+
+During the hands-on exercise, I created a feature branch for README development.
+
+The general workflow was:
+
+```text
+main
+  ↓
+Create feature branch
+  ↓
+Make changes
+  ↓
+Stage changes
+  ↓
+Commit changes
+  ↓
+Push feature branch
+  ↓
+Create Pull Request
+```
+
+This allowed me to work on the README without directly modifying `main`.
+
+---
+
+### 6. Pushing a Feature Branch
+
+After creating and committing changes on my feature branch, I pushed the branch to GitHub using:
+
+```bash
+git push -u origin feature/readme
+```
+
+This created a relationship between:
+
+```text
+Local branch:
+feature/readme
+
+Remote branch:
+origin/feature/readme
+```
+
+The `-u` option establishes the upstream tracking relationship, allowing future pushes from the same branch to usually use:
+
+```bash
+git push
+```
+
+---
+
+### 7. Pull Requests
+
+A Pull Request is a GitHub feature used to propose that changes from one branch be reviewed and integrated into another branch.
+
+A Pull Request does not automatically merge the changes. Instead, it creates a review point where the proposed changes can be examined before they are accepted.
+
+The workflow is:
+
+```text
+Feature Branch
+      ↓
+Pull Request
+      ↓
+Review
+      ↓
+Approval
+      ↓
+Merge
+```
+
+I successfully created my first Pull Request on GitHub during this exercise.
+
+---
+
+### 8. Base and Compare Branches
+
+When creating the Pull Request, GitHub displayed:
+
+```text
+base: main ← compare: feature/readme
+```
+
+This means that changes from:
+
+```text
+feature/readme
+```
+
+are being proposed for integration into:
+
+```text
+main
+```
+
+In this case:
+
+```text
+Source:
+feature/readme
+
+Destination:
+main
+```
+
+---
+
+### 9. Reviewing Files Changed
+
+Before merging the Pull Request, I reviewed the **Files changed** section.
+
+This step is important because it allows the developer or reviewer to inspect:
+
+* Files that were modified
+* Lines that were added
+* Lines that were removed
+* Unintended changes
+* Accidental deletions
+* Duplicate or unnecessary content
+
+Reviewing changes before merging reduces the risk of introducing errors into the main branch.
+
+This is an important component of professional code review.
+
+---
+
+### 10. Merging
+
+Merging integrates the changes and development history from one branch into another branch.
+
+For example:
+
+```text
+main
+  ●────●
+        \
+         ●────●  feature/readme
+```
+
+After the branch is reviewed and merged:
+
+```text
+main
+  ●────●──────●
+        \     /
+         ●───●
+```
+
+The work completed on the feature branch becomes part of `main`.
+
+Merging is not simply combining two files. A branch may contain changes across multiple files, scripts, configurations, or documentation.
+
+---
+
+### 11. Local and Remote Synchronization
+
+An important lesson from this exercise was that changes performed on GitHub are not automatically reflected in the local repository.
+
+After merging the Pull Request on GitHub, I switched back to my local `main` branch using:
+
+```bash
+git switch main
+```
+
+I then retrieved the updated remote changes using:
+
+```bash
+git pull
+```
+
+The workflow was:
+
+```text
+GitHub main
+     ↓
+git pull
+     ↓
+Local main
+```
+
+This synchronized the local repository with the updated `main` branch on GitHub.
+
+---
+
+## Commands Practiced
+
+During Day 3, I practiced the following Git commands:
+
+```bash
+git status
+git branch
+git switch -c feature/readme
+git switch main
+git add <filename>
+git commit -m "Meaningful commit message"
+git push -u origin feature/readme
+git push
+git pull
+git log --oneline --all --graph
+```
+
+---
+
+## Git Branching Workflow
+
+The complete workflow practiced during Day 3 was:
+
+```text
+Local main
+     ↓
+Create feature branch
+     ↓
+git switch -c feature/readme
+     ↓
+Modify project files
+     ↓
+git status
+     ↓
+git add
+     ↓
+git commit
+     ↓
+git push
+     ↓
+Remote feature branch on GitHub
+     ↓
+Pull Request
+     ↓
+Review Files Changed
+     ↓
+Merge into main
+     ↓
+Remote main updated
+     ↓
+git switch main
+     ↓
+git pull
+     ↓
+Local main synchronized
+```
+
+---
+
+## Application to Bioinformatics
+
+Branching and Pull Requests are particularly useful in bioinformatics software and pipeline development.
+
+For example, a bioinformatics pipeline might use separate branches for:
+
+```text
+feature/add-fastqc
+feature/add-multiqc
+feature/gatk-variant-calling
+feature/vep-annotation
+fix/reference-genome-path
+docs/validation-procedure
+```
+
+Developers can test each feature independently before integrating it into the stable pipeline.
+
+This approach can help prevent experimental changes from breaking a validated or working workflow.
+
+For collaborative bioinformatics projects, Pull Requests also provide a structured mechanism for reviewing changes to:
+
+* Python scripts
+* R scripts
+* Nextflow workflows
+* Configuration files
+* Quality-control modules
+* Documentation
+* Pipeline parameters
+
+---
+
+## Hands-On Activities Completed
+
+* Created my first Git feature branch
+* Switched between `main` and a feature branch
+* Modified project documentation on the feature branch
+* Staged and committed branch-specific changes
+* Pushed a feature branch to GitHub
+* Created my first GitHub Pull Request
+* Reviewed the **Files changed** section
+* Merged my first Pull Request into `main`
+* Switched back to the local `main` branch
+* Pulled the merged changes from GitHub
+* Synchronized the local and remote repositories
+* Practiced viewing branch and commit history
+
+---
+
+## Important Terminology Corrections
+
+### Branch
+
+A branch is not a separate repository.
+
+It is a separate line of development within the same repository.
+
+### `git switch`
+
+`git switch` changes the currently checked-out branch, not the working directory.
+
+### `*` in `git branch`
+
+The `*` identifies the currently checked-out branch.
+
+### Pull Request
+
+A Pull Request proposes changes for review and potential integration. It does not itself automatically merge those changes.
+
+### Merge
+
+A merge integrates changes and development history from one branch into another.
+
+---
+
+## Key Takeaway
+
+Day 3 introduced me to a professional Git and GitHub development workflow.
+
+Instead of making every change directly on `main`, I learned how to develop work safely on feature branches, push those branches to GitHub, review changes through Pull Requests, merge approved changes, and synchronize the updated remote repository with my local repository.
+
+The workflow I now understand is:
+
+```text
+Branch → Develop → Commit → Push → Pull Request → Review → Merge → Pull
+```
+
+This approach provides better organization, safer development, clearer project history, and improved collaboration.
+
+For future bioinformatics projects, this workflow can help manage changes to pipelines, scripts, configuration files, documentation, and validation-related materials without immediately affecting the stable version of the project.
+
+---
+
+## Day 3 Status
+
+**Completed**
