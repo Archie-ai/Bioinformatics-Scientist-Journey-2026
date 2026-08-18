@@ -913,3 +913,44 @@ For future bioinformatics projects, this workflow can help manage changes to pip
 ## Day 3 Status
 
 **Completed**
+
+
+## Day 4 — GitHub Issues, Linked Pull Requests and Merge Conflicts
+
+### Topics Learned
+- GitHub Issues for tracking bugs, features, documentation and project tasks
+- Labels for organizing Issues
+- Linking Issues with Pull Requests
+- Using `Closes #<issue-number>`
+- Issue → branch → commit → Pull Request → review → merge workflow
+- Merge conflicts and why they occur
+- Git conflict markers
+- Manual conflict resolution
+- Local vs remote branches
+- Branch cleanup after successful merges
+- Traceability in collaborative software development
+
+### Hands-On Activities
+- Created and labeled a GitHub Issue
+- Created an Issue-specific feature branch
+- Modified repository documentation
+- Opened and reviewed a Pull Request
+- Linked the Pull Request to an Issue
+- Merged the Pull Request and closed the Issue
+- Created a deliberate merge conflict
+- Identified `HEAD` and incoming branch changes
+- Manually resolved the conflict
+- Staged and committed the resolution
+- Deleted an obsolete merged branch
+
+### Key Concepts
+A merge conflict is not a Git failure. It occurs when Git cannot safely determine how competing changes should be combined and therefore requires human review.
+
+A professional collaborative workflow can follow:
+
+Issue → Feature Branch → Commits → Pull Request → Code Review → Merge
+
+This workflow provides traceability, protects the stable `main` branch, and allows multiple developers to work independently.
+
+### Day 4 Status
+Completed
