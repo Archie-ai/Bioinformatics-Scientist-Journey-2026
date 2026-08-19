@@ -33,4 +33,4 @@ bioinformatics workflows and reproducible research.
 
 ## Status
 
-In Progress
+Completed (08-18-2026)
