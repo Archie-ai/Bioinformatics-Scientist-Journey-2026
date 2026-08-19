@@ -958,3 +958,137 @@ This workflow provides traceability, protects the stable `main` branch, and allo
 
 ### Day 4 Status
 Completed
+
+
+## Day 5 — Git History, Comparison and Recovery
+
+### Date
+
+August 19, 2026
+
+### Day 5 Objectives
+
+- Inspect Git repository history
+- Compare working, staged, and committed changes
+- Learn how to safely unstage files
+- Restore unwanted local modifications
+- Reverse committed changes while preserving history
+- Develop practical Git troubleshooting and recovery skills
+
+### Topics Learned
+
+- `git log --oneline`
+- `git show <commit>`
+- `git diff`
+- `git diff --staged`
+- `git restore --staged`
+- `git restore`
+- `git revert`
+- Local versus remote commit synchronization
+- Safe recovery practices in collaborative repositories
+
+### Git History
+
+I learned that:
+
+`git log --oneline`
+
+provides a concise view of repository commit history, including shortened commit hashes and commit messages.
+
+The command:
+
+`git show <commit-hash>`
+
+can be used to inspect a specific commit, including its metadata and the exact file changes introduced by that commit.
+
+### Understanding `git diff`
+
+I learned that Git can compare different stages of the repository workflow.
+
+`git diff`
+
+compares the current working directory with the staging area and therefore displays unstaged modifications.
+
+`git diff --staged`
+
+compares the staging area with the current committed version (`HEAD`) and shows the changes that will enter the next commit.
+
+The relationship can be represented as:
+
+Working Directory
+        ↓
+     git diff
+        ↓
+Staging Area
+        ↓
+ git diff --staged
+        ↓
+HEAD / Last Commit
+
+### Restoring and Unstaging Files
+
+I practiced removing a file from the staging area while preserving its local modifications using:
+
+`git restore --staged <file>`
+
+I also practiced discarding unwanted unstaged modifications using:
+
+`git restore <file>`
+
+This demonstrated the importance of reviewing changes with `git diff` before discarding local work.
+
+### Reverting Commits
+
+I deliberately created an incorrect change to a pipeline configuration example and committed it.
+
+I then used:
+
+`git revert <commit-hash>`
+
+to reverse the incorrect commit.
+
+Unlike deleting or rewriting history, `git revert` created a new commit containing the inverse changes while preserving the original commit in repository history.
+
+This is especially useful in collaborative projects because it maintains a traceable audit history.
+
+### Recovery Scenarios Practiced
+
+I learned how to respond to several common Git situations:
+
+- Accidentally staged file → `git restore --staged <file>`
+- Unwanted unstaged modification → `git restore <file>`
+- Inspect unstaged changes → `git diff`
+- Inspect staged changes → `git diff --staged`
+- Inspect repository history → `git log --oneline`
+- Inspect a specific commit → `git show <hash>`
+- Reverse an already committed change → `git revert <hash>`
+- Synchronize local commits with GitHub → `git push`
+
+### Application to Bioinformatics
+
+These recovery techniques are important in bioinformatics pipeline development because computational workflows frequently contain configuration files, parameters, scripts, reference settings, and quality-control thresholds.
+
+Git allows changes to these components to be inspected, traced, reviewed, and safely reversed when necessary.
+
+For shared or validated workflows, preserving the history of parameter and code changes improves reproducibility and traceability.
+
+### Hands-On Activities Completed
+
+- Inspected repository history
+- Examined individual commits
+- Compared unstaged changes
+- Compared staged changes
+- Unstaged a file without losing edits
+- Discarded an unwanted local edit
+- Created a deliberate incorrect commit
+- Reverted the incorrect commit
+- Verified that the original commit remained in history
+- Completed Git troubleshooting and recovery scenarios
+
+### Key Takeaway
+
+Git is not only a system for saving versions of files. It also provides mechanisms for investigating project history, reviewing changes before committing them, recovering from mistakes, and safely reversing changes while maintaining a transparent development history.
+
+### Day 5 Status
+
+**Completed**
